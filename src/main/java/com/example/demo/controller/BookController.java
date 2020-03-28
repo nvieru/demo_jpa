@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.dto.BookDto;
 import com.example.demo.service.BookService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -45,8 +46,8 @@ public class BookController {
         bookService.deleteBook(id);
     }
 
-    /*@ExceptionHandler({ConstraintViolationException.class})
-    public HttpResponse<> handleException() {
-        return new HttpResponse
-    }*/
+    @ExceptionHandler({ConstraintViolationException.class})
+    public ResponseEntity handleException() {
+        return ResponseEntity.badRequest().body("Bad request");
+    }
 }

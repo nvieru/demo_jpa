@@ -5,6 +5,7 @@ import com.example.demo.BookRepository;
 import com.example.demo.dto.BookDto;
 import com.example.demo.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.ConstraintViolationException;
@@ -44,11 +45,10 @@ public class BookController {
         bookService.deleteBook(id);
     }
 
-//    @ExceptionHandler({ConstraintViolationException.class})
-//    public HttpResponse<> handleException(){
-//        return new HttpResponse() {
-//        }
-//    }
+    @ExceptionHandler({ConstraintViolationException.class})
+    public ResponseEntity handleException(){
+        return ResponseEntity.badRequest().body("Bad Request");
+    }
 }
 
 

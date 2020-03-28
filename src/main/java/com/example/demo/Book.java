@@ -13,7 +13,7 @@ public class Book {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
 
-  private String autor;
+  private String author;
   private String title;
   @Column(nullable = false)
   private Integer volume;
@@ -21,8 +21,8 @@ public class Book {
   public Book() {
   }
 
-  public Book(String autor, String title, Integer volume) {
-    this.autor = autor;
+  public Book(String author, String title, Integer volume) {
+    this.author = author;
     this.title = title;
     this.volume = volume;
   }
@@ -31,18 +31,18 @@ public class Book {
   public String toString() {
     return "Book{" +
             "id=" + id +
-            ", autor='" + autor + '\'' +
+            ", author='" + author + '\'' +
             ", title='" + title + '\'' +
             ", volume=" + volume +
             '}';
   }
 
-  public String getAutor() {
-    return autor;
+  public String getAuthor() {
+    return author;
   }
 
-  public void setAutor(String autor) {
-    this.autor = autor;
+  public void setAuthor(String author) {
+    this.author = author;
   }
 
   public String getTitle() {

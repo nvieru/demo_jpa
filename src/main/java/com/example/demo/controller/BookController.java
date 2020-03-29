@@ -34,7 +34,7 @@ public class BookController {
     }
 
     /*
-    localhost:8080/book/1?title=Titlu
+    localhost:8080/book/1?title=Title
      */
     @PutMapping("/{id}")
     public void updateBookTitle(@PathVariable @Valid @Min(0) Long id, @RequestParam String title) {

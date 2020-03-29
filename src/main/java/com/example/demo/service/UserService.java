@@ -10,12 +10,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
-  @Autowired
-  UserRepository userRepository;
+    @Autowired
+    UserRepository userRepository;
 
-  private ModelMapper modelMapper = new ModelMapper();
+    private ModelMapper modelMapper = new ModelMapper();
 
-  public void addUser(UserDto userDto) {
-    userRepository.save(modelMapper.map(userDto, User.class));
-  }
+    public void addUser(UserDto userDto) {
+        userRepository.save(modelMapper.map(userDto, User.class));
+    }
 }

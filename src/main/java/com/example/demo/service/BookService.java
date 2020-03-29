@@ -23,7 +23,7 @@ public class BookService {
     }
 
     public List<BookDto> getAllBooks() {
-        return ((List<Book>)bookRepository.findAll())
+        return ((List<Book>) bookRepository.findAll())
                 .stream()
                 .map(book -> modelMapper.map(book, BookDto.class))
                 .collect(Collectors.toList());
@@ -35,17 +35,9 @@ public class BookService {
 
     public void updateBookTitle(Long id, String title) {
         bookRepository.updateTitle(id, title);
-
-        /*Optional<Book> book = bookRepository.findById(id);
-        if (book.isPresent()) {
-            book.get().setTitle(title);
-            bookRepository.save(book.get());
-        }*/
-
     }
 
     public void deleteBook(Long id) {
         bookRepository.deleteById(id);
     }
-
 }

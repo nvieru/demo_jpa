@@ -12,8 +12,12 @@ public class UserService {
 
     private ModelMapper modelMapper = new ModelMapper();
 
+    private UserRepository userRepository;
+
     @Autowired
-    UserRepository userRepository;
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     public void addUser(UserDto userDto) {
         userRepository.save(modelMapper.map(userDto, User.class));

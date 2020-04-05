@@ -16,10 +16,14 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableJpaRepositories(basePackageClasses = UserRepository.class)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     
-    @Qualifier("userDetailsServiceImpl")
+
+    private UserDetailsService userDetailsService;
+
     @Autowired
-    UserDetailsService userDetailsService;
-    
+    public SecurityConfig(@Qualifier("userDetailsServiceImpl") UserDetailsService userDetailsService) {
+        this.userDetailsService = userDetailsService;
+    }
+
     @Override
 
     public void configure(HttpSecurity httpSecurity) throws Exception{
